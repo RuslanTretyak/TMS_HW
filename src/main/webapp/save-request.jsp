@@ -14,53 +14,53 @@
             <div class="row">
                 <div class="col d-flex justify-content-center">
                     <form action="save-request" method="post">
-                        <c:if test="${isNameCorrect == true}">
+                        <c:if test="${isNameCorrect}">
                             <div class="form-floating mb-3">
                                 <input name="name" type="text" class="form-control" id="floatingInput" placeholder="">
                                 <label for="floatingInput">${nameLine}</label>
                             </div>
                         </c:if>
-                        <c:if test="${isNameCorrect == false}">
+                        <c:if test="${!isNameCorrect}">
                             <div class="form-floating mb-3">
                                 <input name="name" type="text" class="form-control is-invalid" id="floatingInputInvalid"
                                     placeholder="">
                                 <label for="floatingInputInvalid">${nameLine}</label>
                             </div>
                         </c:if>
-                        <c:if test="${isSurnameCorrect == true}">
+                        <c:if test="${isSurnameCorrect}">
                             <div class="form-floating mb-3">
                                 <input name="surname" type="text" class="form-control" id="floatingInput"
                                     placeholder="">
                                 <label for="floatingInput">${surnameLine}</label>
                             </div>
                         </c:if>
-                        <c:if test="${isSurnameCorrect == false}">
+                        <c:if test="${!isSurnameCorrect}">
                             <div class="form-floating mb-3">
                                 <input name="surname" type="text" class="form-control is-invalid"
                                     id="floatingInputInvalid" placeholder="">
                                 <label for="floatingInputInvalid">${surnameLine}</label>
                             </div>
                         </c:if>
-                        <c:if test="${isAgeCorrect == true}">
+                        <c:if test="${isAgeCorrect}">
                             <div class="form-floating mb-3">
                                 <input name="age" type="number" class="form-control" id="floatingInput" placeholder="">
                                 <label for="floatingInput">${ageLine}</label>
                             </div>
                         </c:if>
-                        <c:if test="${isAgeCorrect == false}">
+                        <c:if test="${!isAgeCorrect}">
                             <div class="form-floating mb-3">
                                 <input name="age" type="number" class="form-control is-invalid"
                                     id="floatingInputInvalid" placeholder="">
                                 <label for="floatingInputInvalid">${ageLine}</label>
                             </div>
                         </c:if>
-                        <c:if test="${isEmailCorrect == true}">
+                        <c:if test="${isEmailCorrect}">
                             <div class="form-floating mb-3">
                                 <input name="email" type="email" class="form-control" id="floatingInput" placeholder="">
                                 <label for="floatingInput">${emailLine}</label>
                             </div>
                         </c:if>
-                        <c:if test="${isEmailCorrect == false}">
+                        <c:if test="${!isEmailCorrect}">
                             <div class="form-floating mb-3">
                                 <input name="email" type="email" class="form-control is-invalid"
                                     id="floatingInputInvalid" placeholder="">
