@@ -16,7 +16,7 @@
                     <form action="save-request" method="post">
                         <c:if test="${isNameCorrect}">
                             <div class="form-floating mb-3">
-                                <input name="name" type="text" class="form-control" id="floatingInput" placeholder="">
+                                <input name="name" type="text" class="form-control" id="floatingInput" placeholder="" value=${name}>
                                 <label for="floatingInput">${nameLine}</label>
                             </div>
                         </c:if>
@@ -30,7 +30,7 @@
                         <c:if test="${isSurnameCorrect}">
                             <div class="form-floating mb-3">
                                 <input name="surname" type="text" class="form-control" id="floatingInput"
-                                    placeholder="">
+                                    placeholder="" value=${surname}>
                                 <label for="floatingInput">${surnameLine}</label>
                             </div>
                         </c:if>
@@ -43,7 +43,7 @@
                         </c:if>
                         <c:if test="${isAgeCorrect}">
                             <div class="form-floating mb-3">
-                                <input name="age" type="number" class="form-control" id="floatingInput" placeholder="">
+                                <input name="age" type="number" class="form-control" id="floatingInput" placeholder="" value=${age}>
                                 <label for="floatingInput">${ageLine}</label>
                             </div>
                         </c:if>
@@ -56,7 +56,7 @@
                         </c:if>
                         <c:if test="${isEmailCorrect}">
                             <div class="form-floating mb-3">
-                                <input name="email" type="email" class="form-control" id="floatingInput" placeholder="">
+                                <input name="email" type="email" class="form-control" id="floatingInput" placeholder="" value=${email}>
                                 <label for="floatingInput">${emailLine}</label>
                             </div>
                         </c:if>
