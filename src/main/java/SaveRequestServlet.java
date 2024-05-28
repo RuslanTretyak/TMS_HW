@@ -41,14 +41,14 @@ public class SaveRequestServlet extends HttpServlet {
             req.setAttribute("emailLine", "Email");
         }
         if (req.getParameter("name").length() != 0 && req.getParameter("surname").length() != 0
-                && Integer.parseInt(req.getParameter("age")) > 0 && req.getParameter("email").length() != 0) {
+                && req.getParameter("age").length() != 0 && req.getParameter("email").length() != 0) {
             req.setAttribute("name", req.getParameter("name"));
             req.setAttribute("surname", req.getParameter("surname"));
             req.setAttribute("age", req.getParameter("age"));
             req.setAttribute("email", req.getParameter("email"));
-            getServletContext().getRequestDispatcher("/save_success.jsp").forward(req, resp);
+            getServletContext().getRequestDispatcher("/WEB-INF/save_success.jsp").forward(req, resp);
         } else {
-            getServletContext().getRequestDispatcher("/save-request.jsp").forward(req, resp);
+            getServletContext().getRequestDispatcher("/WEB-INF/save-request.jsp").forward(req, resp);
         }
     }
 
@@ -62,6 +62,6 @@ public class SaveRequestServlet extends HttpServlet {
         req.setAttribute("surnameLine", "Surname");
         req.setAttribute("ageLine", "Age");
         req.setAttribute("emailLine", "Email");
-        getServletContext().getRequestDispatcher("/save-request.jsp").forward(req, resp);
+        getServletContext().getRequestDispatcher("/WEB-INF/save-request.jsp").forward(req, resp);
     }
 }
