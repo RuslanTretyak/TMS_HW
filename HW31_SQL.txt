@@ -1,0 +1,19 @@
+create database "HW31";
+create table "HW31" (
+	id INT UNIQUE,
+	passport_number VARCHAR(10) UNIQUE,
+	name VARCHAR(10),
+	surname VARCHAR(10),
+	age INT
+);
+select * from "HW31";
+
+insert into "HW31" values (1, 'KH1111111', 'User', 'Surname1', 20),
+(2, 'KH2222222', 'User2', 'Surname2', 21),
+(3, 'KH3333333', 'User3', 'Surname3', 22),
+(4, 'KH4444444', 'User4', 'Surname4', 23),
+(5, 'KH5555555', 'User5', 'Surname5', 24);
+
+update "HW31" set age = 55 where name = 'User';
+
+delete from "HW31" where age > 50;
