@@ -1,1 +1,5 @@
 /.idea/
+/.idea/
+/src/
+/.gitignore
+/pom.xml
