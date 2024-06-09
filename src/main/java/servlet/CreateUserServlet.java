@@ -4,7 +4,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import util.Util;
+import util.UserService;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -21,7 +21,7 @@ public class CreateUserServlet extends HttpServlet {
             getServletContext().getRequestDispatcher("/WEB-INF/create_user.jsp").forward(req, resp);
         } else {
             try {
-                Util.createUser(name, surname, login, Integer.parseInt(age));
+                UserService.createUser(name, surname, login, Integer.parseInt(age));
                 req.setAttribute("message", "user " + login + " created successful");
                 getServletContext().getRequestDispatcher("/WEB-INF/create_user_successful.jsp").forward(req, resp);
             } catch (SQLException e) {

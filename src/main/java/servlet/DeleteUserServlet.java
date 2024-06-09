@@ -4,7 +4,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import util.Util;
+import util.UserService;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -17,7 +17,7 @@ public class DeleteUserServlet extends HttpServlet {
         } else {
             try {
                 int id = Integer.parseInt(req.getParameter("id"));
-                if (Util.deleteUser(id)){
+                if (UserService.deleteUser(id)){
                     req.setAttribute("message", "user with ID was deleted");
                 } else {
                     req.setAttribute("message", "user with ID " + id + " does not exist");

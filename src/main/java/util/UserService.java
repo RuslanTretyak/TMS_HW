@@ -1,22 +1,24 @@
 package util;
 
+import entity.User;
+
 import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Util {
-    public static Map<String, String> getUserInfo(int id) throws SQLException {
+public class UserService {
+    public static User getUserInfo(int id) throws SQLException {
         Connection connection = PostgreDriverManager.getInstance().getConnection();
         PreparedStatement statement = connection.prepareStatement("SELECT * FROM users where id = ?");
         statement.setInt(1, id);
         ResultSet resultSet = statement.executeQuery();
+        User user = new User();
         if (resultSet.next()){
-            Map<String, String> userInfo = new HashMap<>();
-            userInfo.put("name", resultSet.getString(3));
-            userInfo.put("surname", resultSet.getString(4));
-            userInfo.put("login", resultSet.getString(2));
-            userInfo.put("age", String.valueOf(resultSet.getInt(5)));
-            return userInfo;
+            user.setLogin(resultSet.getString(2));
+            user.setName(resultSet.getString(3));
+            user.setSurname(resultSet.getString(4));
+            user.setAge(resultSet.getInt(5));
+            return user;
         } else {
             return null;
         }

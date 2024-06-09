@@ -4,11 +4,10 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import util.Util;
+import util.UserService;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.Map;
 
 public class ChangeLoginServlet extends HttpServlet {
     @Override
@@ -19,7 +18,7 @@ public class ChangeLoginServlet extends HttpServlet {
             try {
                 int id = Integer.parseInt(req.getParameter("id"));
                 String newLogin = req.getParameter("login");
-                if (Util.changeUserLogin(id, newLogin)){
+                if (UserService.changeUserLogin(id, newLogin)){
                     req.setAttribute("message", "new login applied");
                 } else {
                     req.setAttribute("message", "user with ID " + id + " does not exist");

@@ -1,10 +1,11 @@
 package servlet;
 
+import entity.User;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import util.Util;
+import util.UserService;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -16,18 +17,18 @@ public class UserInfoServlet extends HttpServlet {
         if (req.getParameter("id") != null) {
             try {
                 int id = Integer.parseInt(req.getParameter("id"));
-                Map<String, String> userInfo = null;
+                User user = null;
                 try {
-                    userInfo = Util.getUserInfo(id);
+                    user = UserService.getUserInfo(id);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
-                if (userInfo != null) {
+                if (user != null) {
                     req.setAttribute("isReqSuccessful", true);
-                    req.setAttribute("name", userInfo.get("name"));
-                    req.setAttribute("surname", userInfo.get("surname"));
-                    req.setAttribute("login", userInfo.get("login"));
-                    req.setAttribute("age", userInfo.get("age"));
+                    req.setAttribute("name", user.getName());
+                    req.setAttribute("surname", user.getSurname());
+                    req.setAttribute("login", user.getLogin());
+                    req.setAttribute("age", user.getAge());
                 } else {
                     req.setAttribute("isReqSuccessful", false);
                     req.setAttribute("message", "id " + id + " not found");
