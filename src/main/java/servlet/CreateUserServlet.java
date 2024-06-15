@@ -23,7 +23,7 @@ public class CreateUserServlet extends HttpServlet {
             try {
                 UserService.createUser(name, surname, login, Integer.parseInt(age));
                 req.setAttribute("message", "user " + login + " created successful");
-                getServletContext().getRequestDispatcher("/WEB-INF/create_user_successful.jsp").forward(req, resp);
+                getServletContext().getRequestDispatcher("/WEB-INF/create_user_result.jsp").forward(req, resp);
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }

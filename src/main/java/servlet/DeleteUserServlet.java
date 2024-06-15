@@ -12,8 +12,13 @@ import java.sql.SQLException;
 public class DeleteUserServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if (req.getParameter("id") == null) {
+        getServletContext().getRequestDispatcher("/WEB-INF/delete_user.jsp").forward(req, resp);
+    }
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        if (req.getParameter("id").isEmpty()) {
             req.setAttribute("message", "parameter ID is not entered");
+            getServletContext().getRequestDispatcher("/WEB-INF/delete_user.jsp").forward(req, resp);
         } else {
             try {
                 int id = Integer.parseInt(req.getParameter("id"));
@@ -28,6 +33,6 @@ public class DeleteUserServlet extends HttpServlet {
                 throw new RuntimeException(e);
             }
         }
-        getServletContext().getRequestDispatcher("/WEB-INF/delete_user.jsp").forward(req, resp);
+        getServletContext().getRequestDispatcher("/WEB-INF/delete_user_result.jsp").forward(req, resp);
     }
 }
